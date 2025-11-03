@@ -27,15 +27,10 @@ import {
   portfolio,
   threejs,
 } from "../assets";
-
 export const navLinks = [
   {
     id: "about",
     title: "About",
-  },
-  {
-    id: "work",
-    title: "Work",
   },
   {
     id: "contact",
@@ -224,7 +219,7 @@ const projects = [
   {
     name: "Schedulify",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Interactive course scheduling tool with file import support (.xlsx/.txt), conflict-free schedule generation, and export to Excel or print. Features include time conflict detection, multiple session types, and visual UI built with Qt/QML. Core logic implemented in modern C++ with MVC design.",
     tags: [
       {
         name: "c++",
