@@ -1,0 +1,14 @@
+<svg width="360" height="280" viewBox="0 0 360 280" xmlns="http://www.w3.org/2000/svg">
+  <!-- background -->
+  <rect width="360" height="280" fill="#333333"></rect>
+
+  <!-- shadow -->
+  <text x="50" y="155" font-size="80" font-family="cursive" fill="black" opacity="0.35">
+    Nimrod
+  </text>
+
+  <!-- main text -->
+  <text x="45" y="150" font-size="80" font-family="cursive" fill="white">
+    Nimrod
+  </text>
+</svg>
