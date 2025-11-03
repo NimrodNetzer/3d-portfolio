@@ -22,6 +22,9 @@ import {
   carrent,
   jobit,
   tripguide,
+  csIntro,
+  oopJava,
+  portfolio,
   threejs,
 } from "../assets";
 
@@ -278,7 +281,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
+    image: csIntro,
     source_code_link: "https://github.com/",
   },
     {
@@ -299,7 +302,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
+    image: oopJava,
     source_code_link: "https://github.com/NimrodNetzer/Java-OOP",
   },
       {
@@ -320,7 +323,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
+    image: portfolio,
     source_code_link: "https://github.com/NimrodNetzer/3d-portfolio",
   },
 ];

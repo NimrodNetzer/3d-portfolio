@@ -29,6 +29,9 @@ import tesla from "./company/tesla.png";
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import csIntro from "./csIntro.png";
+import oopJava from "./oopJava.png";
+import portfolio from "./portfolio.png";
 
 export {
   logo,
@@ -59,4 +62,7 @@ export {
   carrent,
   jobit,
   tripguide,
+  csIntro,
+  oopJava,
+  portfolio,
 };
