@@ -281,7 +281,7 @@ const projects = [
       },
     ],
     image: csIntro,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/NimrodNetzer/CS-Introdction-Project",
   },
     {
     name: "OOP Project",
