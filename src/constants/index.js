@@ -19,8 +19,8 @@ import {
   starbucks,
   tesla,
   shopify,
-  carrent,
-  jobit,
+  carrent as netflix,
+  jobit as schedulify,
   tripguide,
   csIntro,
   oopJava,
@@ -203,22 +203,22 @@ const projects = [
   {
     name: "Netflix Clone",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "Full-stack streaming platform with user auth (JWT), profiles, favorites/watchlist, search & filtering by category, and an Admin panel to manage movies and categories. Backend powered by Node.js/Express with MongoDB; React + Tailwind on the web UI. Docker-ready dev setup.",
     tags: [
       {
-        name: "react",
+        name: "docker",
         color: "blue-text-gradient",
       },
       {
-        name: "mongodb",
+        name: "nodejs",
         color: "green-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "mongodb",
         color: "pink-text-gradient",
       },
     ],
-    image: carrent,
+    image: netflix,
     source_code_link: "https://github.com/NimrodNetzer/Netflix-BIU",
   },
   {
@@ -227,7 +227,7 @@ const projects = [
       "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
     tags: [
       {
-        name: "react",
+        name: "c++",
         color: "blue-text-gradient",
       },
       {
@@ -239,24 +239,24 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: jobit,
+    image: schedulify,
     source_code_link: "https://github.com/NimrodNetzer/Schedulify",
   },
   {
     name: "Task Management System",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "A full-stack productivity web application that enables users to efficiently create, organize, and track tasks with features like due dates, priority levels, and progress status. Includes a modern authentication system and a clean, responsive UI for managing daily workflows.",
     tags: [
       {
-        name: "nextjs",
+        name: "python",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "nodejs",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "javascript",
         color: "pink-text-gradient",
       },
     ],
@@ -266,18 +266,18 @@ const projects = [
   {
     name: "Cs Introudction Project",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "A menu-driven C application showcasing fundamental CS concepts: base conversion, recursion (strings, numbers, arrays), and dynamic data structures (linked list UserDB).",
     tags: [
       {
-        name: "nextjs",
+        name: "c",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "recursion",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "linked lists",
         color: "pink-text-gradient",
       },
     ],
@@ -287,18 +287,18 @@ const projects = [
     {
     name: "OOP Project",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "A classic Java Breakout game demonstrating OOP principles. Features collision detection, sprite management, event listeners, and a complete game loop, built for an introductory computer science course.",
     tags: [
       {
-        name: "nextjs",
+        name: "java",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "oop",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "java swing",
         color: "pink-text-gradient",
       },
     ],
@@ -308,18 +308,18 @@ const projects = [
       {
     name: "3D Portfolio",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "3D personal portfolio website built with React, Three.js, and Tailwind CSS. It features interactive 3D models, smooth animations with Framer Motion, and a functional contact form.",
     tags: [
       {
-        name: "nextjs",
+        name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "threejs",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "tailwindcss",
         color: "pink-text-gradient",
       },
     ],
