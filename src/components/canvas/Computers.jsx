@@ -29,6 +29,9 @@ const Computers = ({ isMobile }) => {
   );
 };
 
+const isMobileDevice = () =>
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -37,11 +40,12 @@ const ComputersCanvas = () => {
     const mediaQuery = window.matchMedia("(max-width: 500px)");
 
     // Set the initial value of the `isMobile` state variable
-    setIsMobile(mediaQuery.matches);
+    // Also check user agent so "Request Desktop Site" on mobile is still detected
+    setIsMobile(mediaQuery.matches || isMobileDevice());
 
     // Define a callback function to handle changes to the media query
     const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
+      setIsMobile(event.matches || isMobileDevice());
     };
 
     // Add the callback function as a listener for changes to the media query

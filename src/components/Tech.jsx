@@ -1,19 +1,21 @@
-/* Update your imports */
 import { useState, useEffect } from "react";
 import { BallCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { technologies } from "../constants";
 
+const isMobileDevice = () =>
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
 const Tech = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Check if screen is mobile (width < 500px)
+    // Check both viewport width and user agent — covers "Request Desktop Site" on mobile
     const mediaQuery = window.matchMedia("(max-width: 500px)");
-    setIsMobile(mediaQuery.matches);
+    setIsMobile(mediaQuery.matches || isMobileDevice());
 
     const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
+      setIsMobile(event.matches || isMobileDevice());
     };
 
     mediaQuery.addEventListener("change", handleMediaQueryChange);

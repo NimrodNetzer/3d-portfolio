@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import toast, { Toaster } from "react-hot-toast";
 
 import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
@@ -33,8 +34,8 @@ const Contact = () => {
 
     emailjs
       .send(
-        'service_oyme4tq',
-        'template_zvi3thk',
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           from_name: form.name,
           to_name: "Nimrod",
@@ -42,24 +43,18 @@ const Contact = () => {
           to_email: "nimrodnetzer@gmail.com",
           message: form.message,
         },
-        '4Uy7mUuTCnE6OvxKv'
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(
         () => {
           setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
-
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
+          toast.success("Thank you! I will get back to you as soon as possible.");
+          setForm({ name: "", email: "", message: "" });
         },
         (error) => {
           setLoading(false);
           console.error(error);
-
-          alert("Ahh, something went wrong. Please try again.");
+          toast.error("Something went wrong. Please try again.");
         }
       );
   };
@@ -68,6 +63,7 @@ const Contact = () => {
     <div
       className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
     >
+      <Toaster position="top-center" />
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
         className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
@@ -109,7 +105,7 @@ const Contact = () => {
               name='message'
               value={form.message}
               onChange={handleChange}
-              placeholder='PLease send a message'
+              placeholder='Please send a message'
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
           </label>

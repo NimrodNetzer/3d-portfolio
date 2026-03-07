@@ -8,6 +8,44 @@ import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 
+const CardContent = ({ name, description, tags, image, source_code_link }) => (
+  <>
+    <div className='relative w-full h-[230px]'>
+      <img
+        src={image}
+        alt='project_image'
+        className='w-full h-full object-cover rounded-2xl'
+      />
+
+      <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
+        <div
+          onClick={() => window.open(source_code_link, "_blank")}
+          className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+        >
+          <img
+            src={github}
+            alt='source code'
+            className='w-1/2 h-1/2 object-contain'
+          />
+        </div>
+      </div>
+    </div>
+
+    <div className='mt-5'>
+      <h3 className='text-white font-bold text-[24px]'>{name}</h3>
+      <p className='mt-2 text-secondary text-[14px]'>{description}</p>
+    </div>
+
+    <div className='mt-4 flex flex-wrap gap-2'>
+      {tags.map((tag) => (
+        <p key={`${name}-${tag.name}`} className={`text-[14px] ${tag.color}`}>
+          #{tag.name}
+        </p>
+      ))}
+    </div>
+  </>
+);
+
 const ProjectCard = ({
   index,
   name,
@@ -15,52 +53,14 @@ const ProjectCard = ({
   tags,
   image,
   source_code_link,
-  isMobile, // 2. Receive isMobile prop
+  isMobile,
 }) => {
-  // 3. Define the Content inside the card (to avoid code duplication)
-  const CardContent = () => (
-    <>
-      <div className='relative w-full h-[230px]'>
-        <img
-          src={image}
-          alt='project_image'
-          className='w-full h-full object-cover rounded-2xl'
-        />
+  const cardProps = { name, description, tags, image, source_code_link };
 
-        <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
-          <div
-            onClick={() => window.open(source_code_link, "_blank")}
-            className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
-          >
-            <img
-              src={github}
-              alt='source code'
-              className='w-1/2 h-1/2 object-contain'
-            />
-          </div>
-        </div>
-      </div>
-
-      <div className='mt-5'>
-        <h3 className='text-white font-bold text-[24px]'>{name}</h3>
-        <p className='mt-2 text-secondary text-[14px]'>{description}</p>
-      </div>
-
-      <div className='mt-4 flex flex-wrap gap-2'>
-        {tags.map((tag) => (
-          <p key={`${name}-${tag.name}`} className={`text-[14px] ${tag.color}`}>
-            #{tag.name}
-          </p>
-        ))}
-      </div>
-    </>
-  );
-
-  // 4. Logic: If Mobile, render PLAIN div. If Desktop, render ANIMATED TILT.
   if (isMobile) {
     return (
       <div className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'>
-        <CardContent />
+        <CardContent {...cardProps} />
       </div>
     );
   }
@@ -75,7 +75,7 @@ const ProjectCard = ({
         }}
         className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'
       >
-        <CardContent />
+        <CardContent {...cardProps} />
       </Tilt>
     </motion.div>
   );
@@ -86,11 +86,14 @@ const Works = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    const isMobileDevice = () =>
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
     const mediaQuery = window.matchMedia("(max-width: 500px)");
-    setIsMobile(mediaQuery.matches);
+    setIsMobile(mediaQuery.matches || isMobileDevice());
 
     const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
+      setIsMobile(event.matches || isMobileDevice());
     };
 
     mediaQuery.addEventListener("change", handleMediaQueryChange);
