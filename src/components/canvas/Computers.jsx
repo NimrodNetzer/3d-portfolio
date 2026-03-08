@@ -27,16 +27,14 @@ const Computers = ({ isMobile }) => {
       {/* Backlight for the rear of the object */}
       <pointLight position={[0, 5, -10]} intensity={5} color="#ffffff" />
 
-      {/* NEW: Dedicated Front Fill Light specifically for the chair */}
+      {/* Dedicated Front Fill Light specifically for the chair */}
       {/* Positioned low and in front [x, y, z] */}
       <pointLight position={[0, -2, 5]} intensity={3} color="#ffffff" />
       
       <primitive
         object={computer.scene}
-        // Increased scale by ~40% (0.18 -> 0.25 / 0.14 -> 0.2)
-        scale={isMobile ? 0.2 : 0.25} 
-        // Lowered Y-position from -2.5 to -4.5 to drop it ~20% down the screen
-        position={isMobile ? [0, -3.5, -2.2] : [0, -4.5, -1.5]}
+        scale={isMobile ? 0.2 : 0.25}
+        position={isMobile ? [0, -6, -2.2] : [0, -7.5, -1.5]}
         rotation={[0, 0, 0]} 
       />
     </mesh>
