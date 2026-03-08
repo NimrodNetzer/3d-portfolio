@@ -12,7 +12,6 @@ const Computers = ({ isMobile }) => {
       <ambientLight intensity={1.5} />
       <hemisphereLight intensity={0.6} groundColor='black' />
       
-      {/* Existing Spotlight */}
       <spotLight
         position={[-20, 50, 10]}
         angle={0.12}
@@ -25,14 +24,19 @@ const Computers = ({ isMobile }) => {
       {/* Primary Front Light */}
       <pointLight position={[10, 10, 10]} intensity={1.5} />
       
-      {/* NEW: Backlight to brighten the chair and rear of the object */}
+      {/* Backlight for the rear of the object */}
       <pointLight position={[0, 5, -10]} intensity={5} color="#ffffff" />
+
+      {/* NEW: Dedicated Front Fill Light specifically for the chair */}
+      {/* Positioned low and in front [x, y, z] */}
+      <pointLight position={[0, -2, 5]} intensity={3} color="#ffffff" />
       
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.14 : 0.18}
-        position={isMobile ? [0, -2, -2.2] : [0, -2.5, -1.5]}
-        // Reset rotation to [0, 0, 0] to make it perfectly straight
+        // Increased scale by ~40% (0.18 -> 0.25 / 0.14 -> 0.2)
+        scale={isMobile ? 0.2 : 0.25} 
+        // Lowered Y-position from -2.5 to -4.5 to drop it ~20% down the screen
+        position={isMobile ? [0, -3.5, -2.2] : [0, -4.5, -1.5]}
         rotation={[0, 0, 0]} 
       />
     </mesh>
