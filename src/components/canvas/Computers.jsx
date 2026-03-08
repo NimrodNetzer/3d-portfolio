@@ -30,6 +30,11 @@ const Computers = ({ isMobile }) => {
       {/* Dedicated Front Fill Light specifically for the chair */}
       {/* Positioned low and in front [x, y, z] */}
       <pointLight position={[0, -2, 5]} intensity={3} color="#ffffff" />
+
+      {/* Lower chair fill — positioned below and in front of the model */}
+      <pointLight position={[0, -10, 4]} intensity={6} color="#ffffff" />
+      <pointLight position={[3, -9, 4]} intensity={4} color="#ffffff" />
+      <pointLight position={[-3, -9, 4]} intensity={4} color="#ffffff" />
       
       <primitive
         object={computer.scene}
