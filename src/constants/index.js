@@ -139,6 +139,7 @@ const projects = [
     ],
     image: netflix,
     source_code_link: "https://github.com/NimrodNetzer/Netflix-BIU",
+    live_demo_link: "https://netflix-web-ashy.vercel.app/login",
   },
   {
     name: "Schedulify",
@@ -244,6 +245,7 @@ const projects = [
     ],
     image: portfolio,
     source_code_link: "https://github.com/NimrodNetzer/3d-portfolio",
+    live_demo_link: "https://nimrod-3d-portfolio.vercel.app",
   },
 ];
 

@@ -8,7 +8,7 @@ import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
 import { fadeIn, textVariant } from "../utils/motion";
 
-const CardContent = ({ name, description, tags, image, source_code_link }) => (
+const CardContent = ({ name, description, tags, image, source_code_link, live_demo_link }) => (
   <>
     <div className='relative w-full h-[230px]'>
       <img
@@ -17,10 +17,22 @@ const CardContent = ({ name, description, tags, image, source_code_link }) => (
         className='w-full h-full object-cover rounded-2xl'
       />
 
-      <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
+      <div className='absolute inset-0 flex justify-end m-3 card-img_hover gap-2'>
+        {live_demo_link && (
+          <div
+            onClick={() => window.open(live_demo_link, "_blank")}
+            className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+            title='Live Demo'
+          >
+            <svg className='w-1/2 h-1/2 fill-current text-white' viewBox='0 0 24 24'>
+              <path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8l6 4-6 4z'/>
+            </svg>
+          </div>
+        )}
         <div
           onClick={() => window.open(source_code_link, "_blank")}
           className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
+          title='Source Code'
         >
           <img
             src={github}
@@ -53,9 +65,10 @@ const ProjectCard = ({
   tags,
   image,
   source_code_link,
+  live_demo_link,
   isMobile,
 }) => {
-  const cardProps = { name, description, tags, image, source_code_link };
+  const cardProps = { name, description, tags, image, source_code_link, live_demo_link };
 
   if (isMobile) {
     return (
