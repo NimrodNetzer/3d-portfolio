@@ -9,8 +9,10 @@ const Computers = ({ isMobile }) => {
 
   return (
     <mesh>
-      <ambientLight intensity={1.2} />
+      <ambientLight intensity={1.5} />
       <hemisphereLight intensity={0.6} groundColor='black' />
+      
+      {/* Existing Spotlight */}
       <spotLight
         position={[-20, 50, 10]}
         angle={0.12}
@@ -19,13 +21,19 @@ const Computers = ({ isMobile }) => {
         castShadow
         shadow-mapSize={1024}
       />
+
+      {/* Primary Front Light */}
       <pointLight position={[10, 10, 10]} intensity={1.5} />
-      <pointLight position={[-10, 5, -5]} intensity={1} />
+      
+      {/* NEW: Backlight to brighten the chair and rear of the object */}
+      <pointLight position={[0, 5, -10]} intensity={5} color="#ffffff" />
+      
       <primitive
         object={computer.scene}
         scale={isMobile ? 0.14 : 0.18}
         position={isMobile ? [0, -2, -2.2] : [0, -2.5, -1.5]}
-        rotation={[-0.01, -0.2, -0.1]}
+        // Reset rotation to [0, 0, 0] to make it perfectly straight
+        rotation={[0, 0, 0]} 
       />
     </mesh>
   );
