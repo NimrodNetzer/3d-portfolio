@@ -1,8 +1,4 @@
 import {
-  mobile,
-  backend,
-  creator,
-  web,
   javascript,
   typescript,
   html,
@@ -42,24 +38,6 @@ export const navLinks = [
   },
 ];
 
-const services = [
-  {
-    title: "Web Developer",
-    icon: web,
-  },
-  {
-    title: "Full-Stack Developer",
-    icon: mobile,
-  },
-  {
-    title: "Backend Developer",
-    icon: backend,
-  },
-  {
-    title: "Application Developer",
-    icon: creator,
-  },
-];
 
 const technologies = [
   {
@@ -249,4 +227,4 @@ const projects = [
   },
 ];
 
-export { services, technologies, projects };
+export { technologies, projects };

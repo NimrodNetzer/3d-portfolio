@@ -30,6 +30,12 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+      toast.error("Please fill in all fields before sending.");
+      return;
+    }
+
     setLoading(true);
 
     emailjs

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 
 import { About, Contact, Education, Hero, Navbar, Tech, Works, StarsCanvas } from "./components";
@@ -36,11 +37,21 @@ const Footer = () => (
         <LinkedInIcon />
       </a>
     </div>
-    <p className='text-secondary text-[13px]'>© 2025 Nimrod Netzer. All rights reserved.</p>
+    <p className='text-secondary text-[13px]'>© {new Date().getFullYear()} Nimrod Netzer. All rights reserved.</p>
   </footer>
 );
 
 const App = () => {
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 1500);
+    }
+  }, []);
+
   return (
     <BrowserRouter>
       <div className='relative z-0 bg-primary'>
@@ -50,8 +61,8 @@ const App = () => {
         </div>
         <About />
         <Education />
-        <Tech />
         <Works />
+        <Tech />
         <div className='relative z-0'>
           <Contact />
           <StarsCanvas />
