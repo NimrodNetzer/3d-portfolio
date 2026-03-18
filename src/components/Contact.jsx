@@ -8,8 +8,11 @@ import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
+const EMAIL = "nimrodnetzer@gmail.com";
+
 const Contact = () => {
   const formRef = useRef();
+  const [copied, setCopied] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -17,6 +20,12 @@ const Contact = () => {
   });
 
   const [loading, setLoading] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(EMAIL);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const handleChange = (e) => {
     const { target } = e;
@@ -76,6 +85,16 @@ const Contact = () => {
       >
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact.</h3>
+
+        <div className='mt-4 flex items-center gap-3'>
+          <span className='text-secondary text-[14px]'>{EMAIL}</span>
+          <button
+            onClick={handleCopyEmail}
+            className='text-[13px] px-3 py-1 rounded-full border border-[#804dee]/50 text-white/80 bg-[#804dee]/10 hover:bg-[#804dee]/25 hover:text-white transition-colors'
+          >
+            {copied ? "Copied!" : "Copy"}
+          </button>
+        </div>
 
         <form
           ref={formRef}

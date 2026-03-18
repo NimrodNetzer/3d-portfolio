@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 
 import { About, Contact, Education, Hero, Navbar, Tech, Works, StarsCanvas } from "./components";
@@ -41,6 +41,36 @@ const Footer = () => (
   </footer>
 );
 
+const ScrollProgressBar = () => {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          setProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <div className="fixed top-0 left-0 w-full h-[3px] z-50">
+      <div
+        className="h-full bg-gradient-to-r from-[#804dee] to-[#56ccf2] transition-all duration-75"
+        style={{ width: `${progress}%`, boxShadow: "0 0 8px #804dee" }}
+      />
+    </div>
+  );
+};
+
 const App = () => {
   useEffect(() => {
     const hash = window.location.hash;
@@ -54,6 +84,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      <ScrollProgressBar />
       <div className='relative z-0 bg-primary'>
         <div className='bg-primary bg-hero-pattern bg-cover bg-no-repeat bg-center'>
           <Navbar />
