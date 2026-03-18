@@ -11,7 +11,7 @@ const courses = [
   "Operating Systems",
   "Computer Architecture",
   "Database Systems",
-  "Networks",
+
 ];
 
 const Education = () => {
