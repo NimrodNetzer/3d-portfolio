@@ -32,6 +32,7 @@ import tripguide from "./tripguide.png";
 import csIntro from "./csIntro.png";
 import oopJava from "./oopJava.png";
 import portfolio from "./portfolio.png";
+import lookup from "./lookup.png";
 
 export {
   logo,
@@ -65,4 +66,5 @@ export {
   csIntro,
   oopJava,
   portfolio,
+  lookup,
 };

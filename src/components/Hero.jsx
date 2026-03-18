@@ -1,7 +1,49 @@
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 import { styles } from "../styles";
 import { ComputersCanvas } from "./canvas";
+
+const roles = [
+  "Full-Stack Developer",
+  "Software Engineering Student",
+  "Backend Developer",
+  "Embedded Systems Developer",
+  "C / C++ Programmer",
+  "React & Node.js Developer",
+  "Application Developer",
+];
+
+const TypewriterText = () => {
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayed, setDisplayed] = useState("");
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = roles[roleIndex];
+    let timeout;
+
+    if (!deleting && displayed.length < current.length) {
+      timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 60);
+    } else if (!deleting && displayed.length === current.length) {
+      timeout = setTimeout(() => setDeleting(true), 1800);
+    } else if (deleting && displayed.length > 0) {
+      timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length - 1)), 35);
+    } else if (deleting && displayed.length === 0) {
+      setDeleting(false);
+      setRoleIndex((i) => (i + 1) % roles.length);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayed, deleting, roleIndex]);
+
+  return (
+    <span className="text-[#3b82f6]">
+      {displayed}
+      <span className="animate-pulse">|</span>
+    </span>
+  );
+};
 
 const Hero = () => {
   return (
@@ -19,9 +61,7 @@ const Hero = () => {
             Hi, I'm <span className='text-[#3b82f6]'>Nimrod</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            Software Engineering student crafting <br className='sm:block hidden' />
-            modern scalable architectures and <br className='sm:block hidden' />
-            intuitive user interfaces.
+            <TypewriterText />
           </p>
         </div>
       </div>

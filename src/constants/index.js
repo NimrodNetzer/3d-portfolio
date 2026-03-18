@@ -1,4 +1,5 @@
 import {
+  lookup,
   javascript,
   typescript,
   html,
@@ -118,6 +119,32 @@ const projects = [
     image: netflix,
     source_code_link: "https://github.com/NimrodNetzer/Netflix-BIU",
     live_demo_link: "https://netflix-web-ashy.vercel.app/login",
+  },
+  {
+    name: "LookUp — Study Sensei",
+    description:
+      "A full-stack Chrome extension that captures screenshots, records audio, and highlights text — sending them to Groq AI for instant summaries, explanations, quizzes, and flashcards. Features a built-in dashboard with search, folders, math rendering, PDF viewer, and flashcard review. Fully self-contained in the browser with no backend, built with React 18, Vite, and IndexedDB.",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "chrome-extension",
+        color: "green-text-gradient",
+      },
+      {
+        name: "groq-ai",
+        color: "pink-text-gradient",
+      },
+      {
+        name: "tailwindcss",
+        color: "orange-text-gradient",
+      },
+    ],
+    image: lookup,
+    source_code_link: "https://github.com/Mnlohani/lookUp",
+    live_demo_link: "https://look-up-gold.vercel.app/",
   },
   {
     name: "Schedulify",
