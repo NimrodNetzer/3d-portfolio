@@ -166,6 +166,7 @@ const projects = [
     ],
     image: schedulify,
     source_code_link: "https://github.com/NimrodNetzer/Schedulify",
+    live_demo_link: "https://schedulify-landing-page.vercel.app/",
   },
   {
     name: "Task Management System",
