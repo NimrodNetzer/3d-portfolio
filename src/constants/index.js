@@ -118,7 +118,7 @@ const projects = [
     ],
     image: netflix,
     source_code_link: "https://github.com/NimrodNetzer/Netflix-BIU",
-    live_demo_link: "https://netflix-web-ashy.vercel.app/login",
+    live_demo_link: "https://netflix-web-ashy.vercel.app/demo",
   },
   {
     name: "LookUp — Study Sensei",
