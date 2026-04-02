@@ -108,7 +108,7 @@ const projects = [
         color: "blue-text-gradient",
       },
       {
-        name: "nodejs",
+        name: "nodejs", 
         color: "green-text-gradient",
       },
       {
